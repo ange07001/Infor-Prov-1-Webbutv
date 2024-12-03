@@ -157,7 +157,7 @@
         }
     </style>
 
-<!-- Vilka bildformat används vanligtvis? -->
+<!-- 8. Vilka bildformat används vanligtvis? -->
 
     <!-- PNG, JPG, GIF, SVG, WEBP -->
 
@@ -187,3 +187,253 @@
     - Fördelar: Stödjer både förlustfri och förlustkomprimering, vilket ger mindre filstorlekar jämfört med PNG och JPG utan att kompromissa mycket på kvaliteten. Stödjer genomskinlighet och animationer.
     - Nackdelar: Inte fullt utbrett stöd i alla webbläsare och bildredigeringsprogram.
     -->
+
+<!-- 9. Hur lägger man in bilder på sin hemsida? -->
+    
+        <!-- <img src="bildens-sökväg" alt="beskrivning-av-bilden"> -->
+    
+        <img src="bild.jpg" alt="En bild på en katt">
+
+        <!-- Om man vill ha flera källor till samma bild så kan man använda picture -->
+        <picture>
+            <source srcset="bild.webp" type="image/webp">
+            <source srcset="bild.jpg" type="image/jpeg">
+            <img src="bild.jpg" alt="En bild på en katt">
+        </picture>
+
+<!-- 10. Vad är padding/margins? -->
+
+    <!-- Padding är det inre utrymmet mellan innehållet och kanten på ett element.
+        Margin är det yttre utrymmet runt om ett element och påverkar avståndet till andra element. -->
+
+    <style>
+        .box {
+            background-color: lightblue;
+            padding: 20px;
+            margin: 20px;
+        }
+    </style>
+
+    <div class="box">
+        Detta är en ruta med padding och margin.
+    </div>
+
+<!-- 11. Skillnad på block- och inline boxar? -->
+
+    <!-- Block-element
+        - Tar upp hela bredden av sin förälder och börjar på en ny rad.
+        - Exempel: <div>, <p>, <h1>-<h6>, <ul>, <ol>, <li>
+
+    Inline-element
+        - Tar upp så mycket bredd som dess innehåll behöver och fortsätter på samma rad.
+        - Exempel: <span>, <a>, <img>, <strong>, <em> -->
+
+    <style>
+        .block {
+            display: block;
+            background-color: lightblue;
+            width: 100px;
+            height: 100px;
+        }
+
+        .inline {
+            display: inline;
+            background-color: lightblue;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+
+<!-- 12. vilka olika boxar använder vi (exempelvis div, main, footer m.m.)? -->
+
+    <!-- <div> - En generell container för att gruppera element.
+    <main> - Huvuddelen av innehållet på en sida.
+    <header> - En inledande del av en sida eller sektion.
+    <footer> - En avslutande del av en sida eller sektion.
+    <section> - En del av en sida eller sektion.
+    <article> - En självständig del av innehållet.
+    <aside> - En sidodel som är relaterad till huvudinnehållet.
+    <nav> - En navigationsdel för att navigera mellan sidor eller sektioner.
+    <figure> - En del av innehållet som innehåller en bild, diagram eller annan media.
+    <figcaption> - En bildtext för en <figure> element.
+    <p> - En paragraf av text.
+    <h1>-<h6> - Rubriker av olika storlekar.
+    <ul> - En osorterad lista.
+    <ol> - En sorterad lista.
+    <li> - Ett listelement.
+    <a> - En länk till en annan sida eller sektion.
+    <img> - En bild.
+    <span> - En generell innehållscontainer.
+    <strong> - En viktig del av texten.
+    <em> - En betonad del av texten.
+    <button> - En knapp för att utföra en handling.
+    <input> - Ett inmatningsfält för att skicka data.
+    <form> - En formulärcontainer för att skicka data.
+    <label> - En etikett för ett inmatningsfält.
+    <select> - En rullgardinsmeny för att välja ett alternativ.
+    <option> - Ett alternativ i en rullgardinsmeny.
+    <textarea> - Ett flerradigt inmatningsfält för text.
+    <table> - En tabell för att visa data.
+    <tr> - En rad i en tabell.
+    <th> - En tabellhuvudcell.
+    <td> - En tabellcell.
+    <thead> - En huvuddel av en tabell.
+    <tbody> - En huvuddel av en tabell.
+    <tfoot> - En avslutande del av en tabell.
+    <iframe> - Ett inbäddat fönster för att visa en annan sida. -->
+    
+<!-- 13. Hur fungerar en grid-layout? -->
+
+    <!-- Grid-layout är en layoutmodell som används för att skapa en flexibel och responsiv layout på en webbsida. 
+    Det består av ett rutnät med rader och kolumner som kan anpassas efter behov. 
+    Genom att använda CSS Grid kan du skapa komplexa layouter med olika storlekar och positioner för olika element på sidan. 
+    Du kan också skapa responsiva layouter som anpassar sig till olika skärmstorlekar och enheter. 
+    Grid-layout ger dig möjlighet att skapa avancerade layouter utan att behöva använda komplicerade CSS-regler eller JavaScript-kod. -->
+
+    <style>
+        /* Definierar grid-containern */
+        .grid-container {
+            min-height: 100vh; /* Minsta höjd är 100% av viewportens höjd */
+            min-width: 100vw; /* Minsta bredd är 100% av viewportens bredd */
+            display: grid; /* Använder CSS Grid Layout */
+            grid-template-columns: 1fr 1fr 1fr; /* Tre kolumner med lika stor bredd */
+            grid-template-rows: 100px 100px; /* Två rader med 100px höjd vardera */
+            gap: 10px; /* Avstånd mellan grid-objekten */
+            grid-template-areas:
+                "header header header"
+                "main main sidebar"
+                "footer footer footer"; /* Definierar områdenas placering i gridet */
+        }
+
+        /* Stil för header-sektionen */
+        .header {
+            grid-area: header; /* Anger att denna del hör till 'header'-området i gridet */
+            background-color: lightblue; /* Sätter bakgrundsfärg */
+        }
+
+        /* Stil för huvudinnehållet */
+        .main {
+            grid-area: main; /* Anger att denna del hör till 'main'-området */
+            background-color: lightgreen;
+        }
+
+        /* Stil för sidopanelen */
+        .sidebar {
+            grid-area: sidebar; /* Anger att denna del hör till 'sidebar'-området */
+            background-color: lightcoral;
+        }
+
+        /* Stil för footern */
+        .footer {
+            grid-area: footer; /* Anger att denna del hör till 'footer'-området */
+            background-color: lightyellow;
+        }
+    </style>
+
+    <!-- Grid-container som innehåller alla sektioner -->
+    <div class="grid-container">
+        <!-- Header-sektionen -->
+        <div class="header">Header</div>
+        <!-- Huvudinnehållet -->
+        <div class="main">Main</div>
+        <!-- Sidopanelen -->
+        <div class="sidebar">Sidebar</div>
+        <!-- Footer-sektionen -->
+        <div class="footer"></div>
+    </div>
+
+<!-- 14. Hur använder man flexbox? -->
+
+    <!-- Flexbox är en layoutmodell som används för att skapa flexibla och responsiva layouter på en webbsida. 
+    Det består av en container och dess barnobjekt som kan anpassas efter behov. 
+    Genom att använda CSS Flexbox kan du skapa enkla och komplexa layouter med olika storlekar och positioner för olika element på sidan. 
+    Du kan också skapa responsiva layouter som anpassar sig till olika skärmstorlekar och enheter. 
+    Flexbox ger dig möjlighet att skapa avancerade layouter utan att behöva använda komplicerade CSS-regler eller JavaScript-kod. -->
+
+    <style>
+        /* Definierar flex-container */
+        .flex-container {
+            min-height: 100vh; /* Minsta höjd är 100% av viewportens höjd */
+            min-width: 100vw; /* Minsta bredd är 100% av viewportens bredd */
+            display: flex; /* Använder CSS Flexbox Layout */
+            flex-direction: column; /* Elementen placeras i en kolumn */
+            justify-content: space-between; /* Elementen fördelas jämnt längs huvudaxeln */
+            align-items: center; /* Elementen centreras längs tvärsaxeln */
+        }
+
+        /* Stil för flex-objektet */
+        .flex-item {
+            width: 100px; /* Bredden på objektet */
+            height: 100px; /* Höjden på objektet */
+            background-color: lightblue; /* Bakgrundsfärg */
+        }
+    </style>
+
+    <!-- Flex-container som innehåller alla flex-objekt -->
+    <div class="flex-container">
+        <!-- Flex-objekt 1 -->
+        <div class="flex-item">1</div>
+        <!-- Flex-objekt 2 -->
+        <div class="flex-item">2</div>
+        <!-- Flex-objekt 3 -->
+        <div class="flex-item">3</div>
+    </div>
+
+<!-- 15. Hur använder man listor och vilka typer av listor finns? -->
+
+    <!-- Listor används för att organisera och strukturera innehåll på en webbsida. 
+    Det finns tre huvudtyper av listor i HTML: osorterade listor (<ul>), sorterade listor (<ol>) och definitionslistor (<dl>). -->
+
+    <!-- Osordterad lista (<ul>) -->
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <!-- Sorterad lista (<ol>) -->
+    <ol>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ol>
+
+    <!-- Definitionlista (<dl>) -->
+    <dl>
+        <dt>Term 1</dt>
+        <dd>Definition 1</dd>
+        <dt>Term 2</dt>
+        <dd>Definition 2</dd>
+    </dl>
+
+<!-- 16. Hur använder man tabeller? -->
+
+    <!-- Tabeller används för att visa data i rader och kolumner på en webbsida. 
+    En tabell består av en eller flera rader (<tr>) som innehåller celler (<td>) eller tabellhuvuden (<th>). -->
+
+    <table>
+        <!-- Tabellhuvud -->
+        <thead>
+            <tr>
+                <th>Header 1</th>
+                <th>Header 2</th>
+                <th>Header 3</th>
+            </tr>
+        </thead>
+        <!-- Tabellkropp -->
+        <tbody>
+            <!-- Rad 1 -->
+            <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+            </tr>
+            <!-- Rad 2 -->
+            <tr>
+                <td>Data 4</td>
+                <td>Data 5</td>
+                <td>Data 6</td>
+            </tr>
+        </tbody>
+    </table>
+
