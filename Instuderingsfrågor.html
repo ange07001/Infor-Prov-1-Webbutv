@@ -1,0 +1,189 @@
+<!-- 1. Hur kan man lägga in CSS på sin hemsida? -->
+
+    <!-- Alternativ 1 (Det bästa sättet), är at länka din CSS till din HTML och så skriver du CSS:en i ett annn fil -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Alternativ 2, Man skriver CSS:en direkt i HTML Filen -->
+    <style>
+        body {
+            background-color: red;
+        }
+    </style>
+
+<!-- 2. Skillnaden mellan klasser och ID, och hur använder man dessa? -->
+    
+    <!-- Klasser kan användas flera gånger på en sida, medans ID kan bara användas en gång på en sida. -->
+    <!-- Klasser används för att styla flera element på samma sätt, medans ID används för att styla ett specifikt element. -->
+
+    <!-- Klass -->
+    <div class="container">
+        <p>Hej</p>
+    </div>
+
+    <style>
+        .container {
+            background-color: red;
+        }
+    </style>
+
+    <!-- ID -->
+    <div id="container">
+        <p>Hej</p>
+    </div>
+
+    <style>
+        #container {
+            background-color: red;
+        }
+    </style>
+
+<!-- 3. Regler som krockar, vilken vinner? -->
+    
+        <!-- Den som skrivs sist i CSS:en vinner. -->
+    
+        <style>
+            body {
+                background-color: red;
+            }
+        </style>
+    
+        <style>
+            body {
+                background-color: blue;
+            }
+        </style>
+    
+        <!-- I detta fall kommer bakgrundsfärgen att bli blå -->
+        
+        <!-- Hur specifik du är påverkar också -->
+
+        <style>
+            body { /* 0,0,1 ger 1 poäng */
+                background-color: red;
+            }
+
+            .container { /* 0,1,0  ger 10 poäng */
+                background-color: blue;
+            }
+
+            #container { /* 1,0,0  ger 100 poäng*/
+                background-color: green;
+            }
+
+            div { /* 0,0,1 ger 1 poäng */
+                background-color: yellow !important; /* Ger den högsta prioritet oavsätt vad som står på andra ställen*/
+            }
+        </style>
+
+        <div class="container" id="container"></div>
+            <p style="color:pink;" >HEJ</p> <!-- Inline styling ger 1000 poäng-->
+        </div>
+
+        <!-- I detta fall kommer bakgrundsfärgen att bli gul -->
+
+<!-- 4. Vad är skillnaden mellan additiv och subtraktiv färgblandning? -->
+        
+        <!-- Additiv färgblandning
+            - RGB (Röd, Grön, Blå)
+            - Lägger till färger för att skapa en ny färg
+            - Används för att skapa färger på svarta skärmar (TV, Dator, Mobil)
+            - Röd + Grön = Gul
+            - Röd + Blå = Lila
+            - Grön + Blå = Turkos
+
+        Subtraktiv färgblandning
+            - CMYK (Cyan, Magenta, Yellow, Key) (Key = Svart som blir när man blandra alla färgerna)
+            - Blandar färger för att skapa en ny färg
+            - Används för att skapa färger på vita papper (skrivare)
+            - Cyan + Magenta = Blå
+            - Cyan + Yellow = Grön
+            - Magenta + Yellow = Röd -->
+
+<!-- 5. Skillnaden mellan RGB(a) och hsl(a)? -->
+
+    <!-- RGB(a) 
+        - Röd, Grön, Blå
+        - Använder sig av färgkoder
+        - 0-255
+        - 0 = ingen färg
+        - 255 = full färg
+        - Används för att skapa färger på svarta skärmar (TV, Dator, Mobil)
+
+    HSL(a)
+        - Hue, Saturation, Lightness
+        - Använder sig av färgkoder
+        - 0-360
+        - 0 = ingen färg
+        - 360 = full färg
+        - Används för att skapa färger på vita papper (skrivare) -->
+
+<!-- 6. Hur fungerar hex färgkoder? -->
+
+    <!-- Hex färgkoder är en färgkod som består av 6 tecken -->
+    <!-- De 2 första tecknen representerar röd, de 2 mittersta representerar grön och de 2 sista representerar blå. -->
+    <!-- 0 = ingen färg, 9 = lite färg, F = full färg -->
+    <!-- #000000 = Svart, #FFFFFF = Vit, #FF0000 = Röd, #00FF00 = Grön, #0000FF = Blå -->
+    
+    <!-- Värdet av en positon ändras såhär: -->
+    <!-- 0-9 sedan a-f -->
+    <!-- 0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f -->
+    <!-- så när du har nått 19  så blir det  1a osv-->
+
+    <!-- Hex färgkoder kan också ha en 7:e tecken som representerar opacitet -->
+    <!-- 0 = ingen färg, 9 = lite färg, F = full färg -->
+
+<!-- 7. Hur gör man färger transparenta? -->
+
+    <!-- Man kan alltid lägga på en sista siffra längst bak på färgkoden och specificera opacitet-->
+
+    <!-- RGB(a) -->
+    <style>
+        body {
+            background-color: rgba(255, 0, 0, 0.5);
+        }
+    </style>
+
+    <!-- HSL(a) -->
+    <style>
+        body {
+            background-color: hsla(0, 100%, 50%, 0.5);
+        }
+    </style>
+
+    <!-- Hex -->
+    <style>
+        body {
+            background-color: #FF000080;
+        }
+    </style>
+
+<!-- Vilka bildformat används vanligtvis? -->
+
+    <!-- PNG, JPG, GIF, SVG, WEBP -->
+
+    <!--
+    PNG (Portable Network Graphics)
+    - Användning: Vanligt för bilder med genomskinlighet och där hög kvalitet är viktig, som logotyper och ikoner.
+    - Fördelar: Stödjer genomskinlighet och har förlustfri komprimering, vilket innebär att ingen bildkvalitet går förlorad.
+    - Nackdelar: Filstorleken kan vara större jämfört med andra format som använder förlustkomprimering.
+
+    JPG/JPEG (Joint Photographic Experts Group)
+    - Användning: Vanligt för fotografier och bilder med många färger och detaljer.
+    - Fördelar: Förlustkomprimering som minskar filstorleken avsevärt, vilket är bra för webbplatser med många bilder.
+    - Nackdelar: Bildkvaliteten kan försämras vid hög komprimering, och formatet stödjer inte genomskinlighet.
+
+    GIF (Graphics Interchange Format)
+    - Användning: Vanligt för enkla animationer och bilder med få färger, som ikoner och diagram.
+    - Fördelar: Stödjer animationer och genomskinlighet.
+    - Nackdelar: Begränsat till 256 färger, vilket gör det olämpligt för fotografier och bilder med många färger.
+
+    SVG (Scalable Vector Graphics)
+    - Användning: Vanligt för vektorgrafik som ikoner, logotyper och diagram.
+    - Fördelar: Vektorbaserat, vilket innebär att bilder kan skalas obegränsat utan kvalitetsförlust. Stödjer interaktivitet och animationer.
+    - Nackdelar: Mindre lämpligt för fotografier och komplexa bilder med många detaljer.
+
+    WEBP
+    - Användning: Ett relativt nytt format som används för både fotografier och grafik på webben.
+    - Fördelar: Stödjer både förlustfri och förlustkomprimering, vilket ger mindre filstorlekar jämfört med PNG och JPG utan att kompromissa mycket på kvaliteten. Stödjer genomskinlighet och animationer.
+    - Nackdelar: Inte fullt utbrett stöd i alla webbläsare och bildredigeringsprogram.
+    -->
