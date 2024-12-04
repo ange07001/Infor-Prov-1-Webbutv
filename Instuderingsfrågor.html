@@ -342,6 +342,33 @@
         <div class="footer"></div>
     </div>
 
+    <!-- Grid-columns och grid-rows -->
+    <!-- grid-template-columns och grid-template-rows används för att definiera storleken på kolumner och rader i gridet.
+    Du kan använda olika enheter som procent, fr, px, em, etc. för att ange storleken på kolumner och rader. -->
+    <!-- Grid-columns och grid-rows räknar efter kanterna mellan två rows eller columns.
+    Detta betyder att om man väljer 2/3 så väljer man tvåan till trean men trean är inte med. -->
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr; /* Tre kolumner med olika bredder */
+            grid-template-rows: 100px 200px; /* Två rader med olika höjder */
+        }
+
+        .grid-item {
+            background-color: lightblue;
+        }
+
+        .item1 {
+            grid-column: 1 / 3; /* Placerar objektet i kolumn 1-3 */
+            grid-row: 1 / 2; /* Placerar objektet i rad 1-2 */
+        }
+
+        .item2 {
+            grid-column: 2 / 4; /* Placerar objektet i kolumn 2-4 */
+            grid-row: 2 / 3; /* Placerar objektet i rad 2-3 */
+        }
+    </style>
+
 <!-- 14. Hur använder man flexbox? -->
 
     <!-- Flexbox är en layoutmodell som används för att skapa flexibla och responsiva layouter på en webbsida. 
@@ -436,4 +463,203 @@
             </tr>
         </tbody>
     </table>
+
+<!-- ÖVRIGT SOM INTE STÅR I INSTUDERINGSFRÅGORNA -->
+
+<!-- Hur fungerar knappar? -->
+
+    <!-- Knappar används för att utföra en handling när de klickas på. 
+    Det finns flera typer av knappar i HTML, inklusive <button>, <input> och <a>. -->
+
+    <!-- Button -->
+    <button onclick="window.location.href='annanSida.html'">Klicka här</button>
+    <!-- Använd <button> när du behöver en knapp som kan innehålla HTML-innehåll som bilder eller andra element. -->
+
+    <!-- Input -->
+    <input type="button" value="Klicka här">
+    <!-- Använd <input type="button"> när du behöver en enkel knapp utan HTML-innehåll. -->
+
+    <!-- Submit -->
+    <input type="submit" value="Skicka">
+    <!-- Använd <input type="submit"> när du behöver en knapp för att skicka ett formulär. -->
+
+    <!-- Anchor -->
+    <a href="annanSida.html">Klicka här</a>
+    <!-- Använd <a> när du behöver en länk som ser ut som en knapp och navigerar till en annan sida eller sektion. -->
+
+    <!-- Om man vill ändra vilken cursor som man får när man håller på knappen -->
+    <style>
+        button {
+            cursor: pointer;
+        }
+    </style>
+
+<!-- Skugga -->
+
+    <!-- Box-shadow -->
+    <!-- Box-shadow är en CSS-egenskap som används för att lägga till en skugga runt ett element. 
+    Det kan användas för att ge en 3D-effekt eller för att skapa en visuell separation mellan element på en webbsida. -->
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+
+    <div class="box"></div>
+
+    <!-- Text-shadow -->
+    <!-- Text-shadow är en CSS-egenskap som används för att lägga till en skugga runt texten på en webbsida. 
+    Det kan användas för att ge en 3D-effekt eller för att göra texten mer läsbar på en bakgrundsbild eller färg. -->
+
+    <style>
+        .text {
+            font-size: 24px;
+            color: white;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+
+    <p class="text">Detta är en text med skugga.</p>
+
+<!-- Transitions -->
+
+<!-- En knapp med texten "HEJHEJ" -->
+    <button>HEJHEJ</button>
+
+    <style>
+        /* Stilar för knappen */
+        button {
+            /* Bakgrundsfärg för knappen */
+            background-color: lightblue;
+            
+            /* Transition-effekter för knappen */
+            /* Ändringar i bakgrundsfärg tar 0.5 sekunder */
+            /* Ändringar i transformering tar 0.5 sekunder med ease-in-out timing-funktion */
+            /* Ändringar i färg tar 1 sekund och börjar efter en fördröjning på 0.5 sekunder med ease-in-out timing-funktion */
+            transition: background-color 0.5s, transform 0.5s ease-in-out, color 1s 0.5s ease-in-out;
+        }
+
+        /* Stilar för knappen när muspekaren är över den (hover state) */
+        button:hover {
+            /* Ändrar bakgrundsfärgen till lightcoral när muspekaren är över knappen */
+            background-color: lightcoral;
+            
+            /* Skalar upp knappen till 110% av dess ursprungliga storlek */
+            transform: scale(1.1);
+            
+            /* Ändrar textfärgen till chartreuse när muspekaren är över knappen */
+            color: chartreuse;
+        }
+    </style>
+
+
+<!-- Forms -->
+
+    <!-- Formulär används för att samla in data från användare på en webbsida. 
+    Det finns flera typer av formulärelement i HTML, inklusive <input>, <textarea>, <select> och <button>. -->
+
+    <!-- Input -->
+    <input type="text" name="name" placeholder="Namn">
+
+    <!-- Textarea -->
+    <textarea name="message" placeholder="Meddelande"></textarea>
+
+    <!-- Select -->
+    <select name="color">
+        <option value="red">Röd</option>
+        <option value="green">Grön</option>
+        <option value="blue">Blå</option>
+    </select>
+
+    <!-- Button -->
+    <button type="submit">Skicka</button>
+
+    <!-- Eller -->
+
+    <input type="submit" value="Skicka">
+
+    <!-- Form -->
+    <form action="skicka.php" method="post">
+        <input type="text" name="name" placeholder="Namn">
+        <textarea name="message" placeholder="Meddelande"></textarea>
+        <select name="color">
+            <option value="red">Röd</option>
+            <option value="green">Grön</option>
+            <option value="blue">Blå</option>
+        </select>
+        <input type="submit" value="Skicka">
+    </form>
+
+    <!-- Dom olika elementen för forms -->
+
+    <!-- Input -->
+    <!-- Används för att skapa inmatningsfält för text, e-post, lösenord, datum, nummer, etc. -->
+    <input type="text" name="name" placeholder="Namn">
+    <imput type="email" name="email" placeholder="E-post">
+    <input type="password" name="password" placeholder="Lösenord">
+    <input type="date" name="date" placeholder="Datum">
+    <input type="number" name="number" placeholder="Nummer">
+    <input type="checkbox" name="checkbox" value="1">
+    <input type="radio" name="radio" value="1">
+
+    <!-- Textarea -->
+    <!-- Används för att skapa flerradiga inmatningsfält för text. -->
+    <textarea name="message" placeholder="Meddelande"></textarea>
+
+    <!-- Select -->
+    <!-- Används för att skapa rullgardinsmenyer för att välja ett alternativ. -->
+    <select name="color">
+        <option value="red">Röd</option>
+        <option value="green">Grön</option>
+        <option value="blue">Blå</option>
+    </select>
+
+    <!-- Button -->
+    <!-- Används för att skapa knappar för att skicka formulärdata. -->
+    <button type="submit">Skicka</button>
+
+    <!-- Form -->
+    <!-- Används för att skapa ett formulär för att samla in data från användare. -->
+    <form action="skicka.php" method="post">
+        Ditt formulär här
+    </form>
+
+    <!-- Label -->
+    <!-- Används för att skapa etiketter för formulärelement. -->
+    <label for="IDförElemetet">HEJEHJ</label>
+
+    <!-- Placeholder -->
+    <!-- Används för att ge en förklarande text i ett inmatningsfält. -->
+    <input type="text" name="name" placeholder="Namn">
+
+    <!-- Required -->
+    <!-- Används för att göra ett formulärelement obligatoriskt att fylla i. -->
+    <input type="text" name="name" required>
+
+    <!-- Autocomplete -->
+    <!-- Används för att aktivera eller inaktivera autokomplettering för ett formulärelement. -->
+    <input type="text" name="name" autocomplete="name">
+
+<!-- CSS variabler -->
+
+    <!-- CSS variabler är en funktion i CSS som används för att lagra och återanvända värden i en webbsida. 
+    De kan användas för att definiera färger, storlekar, avstånd och andra egenskaper som kan återanvändas på flera ställen i en webbsida. -->
+
+    <style>
+        /* Definierar en CSS-variabel för bakgrundsfärg */
+        :root {
+            --background-color: lightblue, lightcoral; /* Definierar en variabel för bakgrundsfärg och det andra värdet är en fallback */
+        }
+
+        /* Använder CSS-variabeln för bakgrundsfärg */
+        body {
+            background-color: var(--background-color);
+        }
+    </style>
+
+
 
